@@ -46,10 +46,12 @@ function getData(url, callback) {
  */
 var requests = ['/countries', '/cities', '/populations'];
 var responses = {};
-
+var z = 0;
 for (i = 0; i < 3; i++) {
     var request = requests[i];
     var callback = function (error, result) {
+        request = requests[z];
+        z++;
         responses[request] = result;
         var l = [];
         for (K in responses)
